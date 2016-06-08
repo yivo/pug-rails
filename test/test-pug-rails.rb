@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'pug-rails'
 require 'test/unit'
 

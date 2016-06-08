@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Pug
   class Railtie < Rails::Engine
     config.pug               = ActiveSupport::OrderedOptions.new

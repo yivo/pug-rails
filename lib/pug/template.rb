@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Pug
   class Template < Tilt::Template
     def prepare
