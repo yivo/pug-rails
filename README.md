@@ -1,4 +1,4 @@
-# Ruby on Rails integration with Jade
+# Ruby on Rails integration with Pug (ex. Jade)
 
 ## How it works
 This gem compiles Jade templates with [command line tool](http://jade-lang.com/command-line).
@@ -11,9 +11,9 @@ There are support of all basic features including advanced:
 Jade template can be alternatively compiled using [command line](http://jade-lang.com/command-line). This method is impemented in this fork.
 
 ## Installing
-Install Jade globally via npm:
+Install Pug globally via npm:
 ```bash
-npm install -g jade
+npm install -g pug-cli
 ```
 
 Add to your Gemfile:
@@ -21,9 +21,9 @@ Add to your Gemfile:
 gem 'pug-rails', '~> 1.0'
 ```
 
-Require Jade runtime.js:
+Require Pug runtime.js:
 ```js
-//= require jade/runtime
+//= require pug/runtime
 ```
 
 ## Running Tests
@@ -32,4 +32,4 @@ bundle exec rake test
 ```
 
 ## Versioning
-Gem version always reflects the version of Jade it contains.
+Gem version always reflects the version of Pug it contains.

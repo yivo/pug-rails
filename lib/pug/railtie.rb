@@ -2,6 +2,7 @@
 module Pug
   class Railtie < Rails::Engine
     config.pug               = ActiveSupport::OrderedOptions.new
+    config.pug.executable    = Pug.find_executable
     config.pug.pretty        = Rails.env.development?
     config.pug.self          = false
     config.pug.compile_debug = Rails.env.development?

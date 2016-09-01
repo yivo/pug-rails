@@ -5,9 +5,7 @@ module Pug
     end
 
     def evaluate(context, locals, &block)
-      options = { }
-      options[:filename] = file
-      jade_config = Rails.application.config.pug.merge(options)
+      jade_config = Rails.application.config.pug.merge(filename: file)
       Pug.compile(data, jade_config)
     end
   end
