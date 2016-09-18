@@ -14,6 +14,6 @@ Gem::Specification.new do |s|
   s.test_files      = `git ls-files -z -- {test,spec,features}/*`.split("\x0")
   s.require_paths   = ['lib']
 
-  s.add_dependency 'pug-ruby', '~> 1.0.0'
-  s.add_dependency 'tilt', '~> 2.0.0'
+  s.add_dependency 'pug-ruby', '~> 1.0'
+  s.add_dependency 'tilt',     '~> 2.0'
 end
