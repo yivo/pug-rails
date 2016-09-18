@@ -4,8 +4,8 @@ Gem::Specification.new do |s|
   s.version         = '2.0.0'
   s.author          = 'Yaroslav Konoplov'
   s.email           = 'eahome00@gmail.com'
-  s.summary         = 'Rails asset pipeline wrapper for the Pug/Jade template engine.'
-  s.description     = 'Rails asset pipeline wrapper for the Pug/Jade template engine.'
+  s.summary         = 'Pug/Jade template engine integration with Rails asset pipeline.'
+  s.description     = 'Pug/Jade template engine integration with Rails asset pipeline.'
   s.homepage        = 'https://github.com/yivo/pug-rails'
   s.license         = 'MIT'
 
