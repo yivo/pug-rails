@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 Gem::Specification.new do |s|
   s.name            = 'pug-rails'
-  s.version         = '2.0.0'
+  s.version         = '2.0.1'
   s.author          = 'Yaroslav Konoplov'
   s.email           = 'eahome00@gmail.com'
   s.summary         = 'Pug/Jade template engine integration with Rails asset pipeline.'
