@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 Gem::Specification.new do |s|
   s.name            = 'pug-rails'
-  s.version         = '2.0.1'
+  s.version         = '2.0.2'
   s.author          = 'Yaroslav Konoplov'
   s.email           = 'eahome00@gmail.com'
   s.summary         = 'Pug/Jade template engine integration with Rails asset pipeline.'
@@ -15,5 +15,4 @@ Gem::Specification.new do |s|
   s.require_paths   = ['lib']
 
   s.add_dependency 'pug-ruby', '~> 1.0'
-  s.add_dependency 'tilt',     '~> 2.0'
 end
