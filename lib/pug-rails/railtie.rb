@@ -1,6 +1,9 @@
 # frozen_string_literal: true
+
+require 'rails/railtie'
+
 module Pug
-  class Railtie < Rails::Engine
+  class Railtie < Rails::Railtie
     config.pug               = Pug.config
     config.pug.pretty        = Rails.env.development?
     config.pug.compile_debug = Rails.env.development?

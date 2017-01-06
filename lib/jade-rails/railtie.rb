@@ -1,6 +1,9 @@
 # frozen_string_literal: true
+
+require 'rails/railtie'
+
 module Jade
-  class Railtie < Rails::Engine
+  class Railtie < Rails::Railtie
     config.jade               = Jade.config
     config.jade.pretty        = Rails.env.development?
     config.jade.compile_debug = Rails.env.development?
