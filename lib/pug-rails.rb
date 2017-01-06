@@ -12,11 +12,16 @@ module Pug
   end
 end
 
+# https://github.com/pugjs/pug/blob/v1.x.x/runtime.js
 Jade.runtime_version = '1.11.0'
+
+# https://github.com/pugjs/pug-runtime
 Pug.runtime_version  = '2.0.2'
 
 require 'pug-ruby'
-require 'pug-rails/template'
+
+require 'pug-rails/sprockets/transformer'
 require 'pug-rails/railtie'
-require 'jade-rails/template'
+
+require 'jade-rails/sprockets/transformer'
 require 'jade-rails/railtie'
