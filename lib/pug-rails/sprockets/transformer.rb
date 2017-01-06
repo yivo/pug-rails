@@ -1,4 +1,6 @@
+# encoding: utf-8
 # frozen_string_literal: true
+
 module Pug
   module Sprockets
     # Sprockets 2, 3 & 4 interface
