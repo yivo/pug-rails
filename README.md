@@ -1,5 +1,8 @@
 ## Pug/Jade template engine integration with Rails asset pipeline
 
+[![Gem Version](https://badge.fury.io/rb/pug-rails.svg)](https://badge.fury.io/rb/pug-rails)
+[![Build Status](https://travis-ci.org/yivo/pug-rails.svg?branch=master)](https://travis-ci.org/yivo/pug-rails)
+
 ## About
 This gem uses [pug-ruby](https://github.com/yivo/pug-ruby) to compile Pug/Jade templates. Please refer to that gem if you want to use Pug/Jade compiler directly.
 
@@ -12,7 +15,7 @@ gem 'pug-rails', '~> 2.0'
 ## Installing Jade
 Install Jade globally via npm:
 ```bash
-npm install -g jade
+npm install --global jade
 ```
 
 Require Jade runtime.js:
@@ -25,7 +28,7 @@ Use `.jst.jade` as extension of your Jade files.
 ## Installing Pug
 Install Pug globally via npm:
 ```bash
-npm install -g pug-cli
+npm install --global pug-cli
 ```
 
 Require Pug runtime.js:
@@ -59,7 +62,22 @@ Rails.application.config.assets.paths << Rails.root.join('app/assets/templates')
 ```
 
 ## Running Tests
-Refer to [pug-ruby](https://github.com/yivo/pug-ruby)
+Install bundler:
+```bash
+gem install bundler
+```
+
+Install dependencies:
+```bash
+cd pug-rails && bundle && appraisal install
+```
+
+Run tests:
+```bash
+cd pug-rails && appraisal rake test
+```
+
+To test `pug-ruby` — refer to [pug-ruby](https://github.com/yivo/pug-ruby)
 
 ## Versioning
 Prior to version 2.0 version of the gem was the same as the version of the Jade runtime that it contains.
