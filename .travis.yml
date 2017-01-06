@@ -20,3 +20,7 @@ matrix:
     gemfile: gemfiles/rails_5.gemfile
   - rvm: 2.1.10
     gemfile: gemfiles/rails_5.gemfile
+
+before_install:
+  - npm install --global jade
+  - npm install --global pug-cli
