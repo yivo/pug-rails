@@ -25,7 +25,7 @@ module Pug
       end
     end
 
-    initializer 'sprockets.pug.runtime', after: 'sprockets.environment', group: :all do |app|
+    initializer 'sprockets.pug.runtime', after: :append_assets_path, group: :all do |app|
       access_assets_config app do |assets|
         assets.precompile += %w( pug/runtime.js )
         assets.paths      += [File.expand_path('../../../vendor/assets/javascripts', __FILE__)]
@@ -34,13 +34,7 @@ module Pug
 
   private
     def access_assets_config(app)
-      if config.respond_to?(:assets) && config.assets.respond_to?(:configure)
-        # Rails 4.x 5.x
-        yield config.assets
-      else
-        # Rails 3.2
-        yield app.assets
-      end
+      yield app.config.assets
     end
 
     def access_assets_environment(app)

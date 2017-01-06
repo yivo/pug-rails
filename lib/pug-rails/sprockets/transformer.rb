@@ -11,7 +11,7 @@ module Pug
         @source   = block.call
       end
 
-      def render(context, empty_hash_wtf)
+      def render(context, _)
         self.class.run(@filename, @source, context)
       end
 

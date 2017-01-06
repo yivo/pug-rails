@@ -14,7 +14,7 @@ module Jade
         # Sprockets 2, 3, and 4
         if env.respond_to?(:register_transformer)
           env.register_mime_type 'text/x-jade', extensions: ['.jade']
-          env.register_transformer 'text/x-jade', 'application/javascript', Jade::Sprockets::Transformer
+          env.register_transformer 'text/x-jade', 'application/javascript+function', Jade::Sprockets::Transformer
         end
 
         if env.respond_to?(:register_engine)
@@ -25,7 +25,7 @@ module Jade
       end
     end
 
-    initializer 'sprockets.jade.runtime', after: 'sprockets.environment', group: :all do |app|
+    initializer 'sprockets.jade.runtime', after: :append_assets_path, group: :all do |app|
       access_assets_config app do |assets|
         assets.precompile += %w( jade/runtime.js )
         assets.paths      += [File.expand_path('../../../vendor/assets/javascripts', __FILE__)]
@@ -34,13 +34,7 @@ module Jade
 
   private
     def access_assets_config(app)
-      if config.respond_to?(:assets) && config.assets.respond_to?(:configure)
-        # Rails 4.x 5.x
-        yield config.assets
-      else
-        # Rails 3.2
-        yield app.assets
-      end
+      yield app.config.assets
     end
 
     def access_assets_environment(app)
