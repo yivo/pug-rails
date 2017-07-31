@@ -1,28 +1,13 @@
-# encoding: utf-8
+# encoding: UTF-8
 # frozen_string_literal: true
 
-module Jade
-  class << self
-    attr_accessor :runtime_version
-  end
-end
+require "rails"
+require "rails/railtie"
 
-module Pug
-  class << self
-    attr_accessor :runtime_version
-  end
-end
+require "pug-ruby"
 
-# https://github.com/pugjs/pug/blob/v1.x.x/runtime.js
-Jade.runtime_version = '1.11.0'
+require "pug-rails/sprockets/transformer"
+require "pug-rails/railtie"
 
-# https://github.com/pugjs/pug-runtime
-Pug.runtime_version  = '2.0.2'
-
-require 'pug-ruby'
-
-require 'pug-rails/sprockets/transformer'
-require 'pug-rails/railtie'
-
-require 'jade-rails/sprockets/transformer'
-require 'jade-rails/railtie'
+require "jade-rails/sprockets/transformer"
+require "jade-rails/railtie"

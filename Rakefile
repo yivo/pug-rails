@@ -1,8 +1,8 @@
-# encoding: utf-8
+# encoding: UTF-8
 # frozen_string_literal: true
 
-require 'rake/testtask'
+require "rake/testtask"
 
-Rake::TestTask.new { |t| t.libs << 'test' }
+Rake::TestTask.new { |t| t.libs << "test" }
 
 task default: :test

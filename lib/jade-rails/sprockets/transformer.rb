@@ -1,10 +1,18 @@
-# encoding: utf-8
+# encoding: UTF-8
 # frozen_string_literal: true
 
 module Jade
   module Sprockets
-    # Sprockets 2, 3 & 4 interface
+    class << self
+      def compile(source, options = {})
+        Jade.compile(source, options)
+      end
+    end
+
+    #
+    # Friendly with sprockets 2.x, 3.x, and 4.x.
     # https://github.com/rails/sprockets/blob/master/guides/extending_sprockets.md#registering-all-versions-of-sprockets-in-processors
+    #
     class Transformer
       def initialize(filename, &block)
         @filename = filename
@@ -16,7 +24,7 @@ module Jade
       end
 
       def self.run(filename, source, context)
-        Jade.compile(source, filename: filename, client: true)
+        Jade::Sprockets.compile(source, filename: filename, client: true)
       end
 
       def self.call(input)

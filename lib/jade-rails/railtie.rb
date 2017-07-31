@@ -1,8 +1,5 @@
-# encoding: utf-8
+# encoding: UTF-8
 # frozen_string_literal: true
-
-require 'rails'
-require 'rails/railtie'
 
 module Jade
   class Railtie < Rails::Railtie
@@ -10,26 +7,27 @@ module Jade
     config.jade.pretty        = Rails.env.development?
     config.jade.compile_debug = Rails.env.development?
 
-    initializer 'sprockets.jade.transformer', after: 'sprockets.environment', group: :all do |app|
+    initializer "sprockets.jade.transformer", after: "sprockets.environment", group: :all do |app|
       access_assets_environment app do |env|
-        # Sprockets 2, 3, and 4
+        # Sprockets 2.x, 3.x, and 4.x.
         if env.respond_to?(:register_transformer)
-          env.register_mime_type 'text/x-jade', extensions: ['.jade']
-          env.register_transformer 'text/x-jade', 'application/javascript+function', Jade::Sprockets::Transformer
+          env.register_mime_type   "text/x-jade", extensions: [".jade"]
+          env.register_transformer "text/x-jade", "application/javascript+function", Jade::Sprockets::Transformer
         end
 
         if env.respond_to?(:register_engine)
-          args = ['.jade', Jade::Sprockets::Transformer]
-          args << { mime_type: 'text/x-jade', silence_deprecation: true } if ::Sprockets::VERSION.start_with?('3')
+          args = [".jade", Jade::Sprockets::Transformer]
+          args << { mime_type: "text/x-jade", silence_deprecation: true } if ::Sprockets::VERSION.start_with?("3")
           env.register_engine(*args)
         end
       end
     end
 
-    initializer 'sprockets.jade.runtime', after: :append_assets_path, group: :all do |app|
+    initializer "sprockets.jade.paths", after: :append_assets_path, group: :all do |app|
       access_assets_config app do |assets|
-        assets.precompile += %w( jade/runtime.js )
-        assets.paths      += [File.expand_path('../../../vendor/assets/javascripts', __FILE__)]
+        File.join(Gem::Specification.find_by_name("pug-ruby").gem_dir, "vendor").tap do |path|
+          assets.paths << path unless assets.paths.include?(path)
+        end
       end
     end
 
@@ -40,10 +38,10 @@ module Jade
 
     def access_assets_environment(app)
       if config.respond_to?(:assets) && config.assets.respond_to?(:configure)
-        # Rails 4.x 5.x
+        # Rails 4.x and 5.x.
         config.assets.configure { |env| yield env }
       else
-        # Rails 3.2
+        # Rails 3.x.
         yield app.assets
       end
     end
