@@ -22,8 +22,16 @@ matrix:
     - rvm:     2.1
       gemfile: gemfiles/rails_5.1.gemfile
 
+env:
+  - RAKE_ENV=test RAILS_ENV=test
+
 before_install:
   - npm install --global jade
   - npm install --global pug-cli
   - gem install bundler
 
+install:
+  - bundle install
+
+script:
+  - bundle exec rake test
