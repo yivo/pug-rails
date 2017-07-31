@@ -115,7 +115,7 @@ DEPENDENCIES
   nokogiri (~> 1.6, < 1.7)
   pry-byebug
   pug-rails!
-  rails (~> 3)
+  rails (~> 3.2)
   rake (~> 10.0)
   sprockets (~> 2)
   test-unit (~> 3.1)

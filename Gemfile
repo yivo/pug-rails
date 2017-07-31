@@ -2,8 +2,8 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-gemspec
 
-gem 'rails', '~> 4'
-gem 'sprockets', '~> 3'
+gem 'rails', '~> 5'
 gem 'pry-byebug'
+
+gemspec

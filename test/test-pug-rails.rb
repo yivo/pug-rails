@@ -1,10 +1,9 @@
 # encoding: utf-8
 # frozen_string_literal: true
 
-require 'rails'
+Bundler.require :default, :development
+
 require 'sprockets/railtie'
-require 'pug-rails'
-require 'test/unit'
 require 'fileutils'
 
 class PugRailsTest < Test::Unit::TestCase
@@ -33,19 +32,8 @@ class PugRailsTest < Test::Unit::TestCase
     task = create_sprockets_task(app)
     task.instance_exec { manifest.compile(assets) }
 
-    expected = <<-JAVASCRIPT.squish
-      (function() { this.JST || (this.JST = {}); this.JST["templates/jade"] = (function(jade) { function template(locals) {
-        var buf = [];
-        var jade_mixins = {};
-        var jade_interp;
-      
-        buf.push("<div>Hello, Jade!</div>");;return buf.join("");
-        }; return template; }).call(this, jade);;
-      }).call(this);
-      (function() { this.JST || (this.JST = {}); this.JST["templates/pug"] = (function() { function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\\u003Cdiv\\u003EHello, Pug!\\u003C\\u002Fdiv\\u003E";;return pug_html;}; return template; }).call(this);;
-      }).call(this);
-    JAVASCRIPT
-    assert_equal expected, app.assets['application.js'].to_s.squish
+    assert_equal File.read(File.expand_path('../fixtures/javascripts/application.js.expected', __FILE__)).squish, \
+                 app.assets['application.js'].to_s.squish
   end
 
   def setup
@@ -69,7 +57,7 @@ private
       config.assets.enabled             = true
       config.assets.gzip                = false
       config.assets.paths               = [Rails.root.join('test/fixtures/javascripts').to_s]
-      config.assets.precompile          = %w( application.js )
+      config.assets.precompile          = %w[ application.js ]
       config.paths['public']            = [Rails.root.join('tmp').to_s]
       config.active_support.deprecation = :stderr
       config.pug.compile_debug          = false

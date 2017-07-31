@@ -9,7 +9,8 @@ rvm:
   - 2.4
 
 gemfile:
-  - gemfiles/rails_3.x.gemfile
+  - gemfiles/rails_3.1.gemfile
+  - gemfiles/rails_3.2.gemfile
   - gemfiles/rails_4.1_with_sprockets_2.gemfile
   - gemfiles/rails_4.1_with_sprockets_3.gemfile
   - gemfiles/rails_4.2_with_sprockets_2.gemfile

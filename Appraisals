@@ -1,5 +1,10 @@
-appraise 'rails-3.x' do
-  gem 'rails',     '~> 3'
+appraise 'rails-3.1' do
+  gem 'rails',     '~> 3.1'
+  gem 'sprockets', '~> 2'
+end
+
+appraise 'rails-3.2' do
+  gem 'rails',     '~> 3.2'
   gem 'sprockets', '~> 2'
 end
 
