@@ -6,8 +6,6 @@ rvm:
   - 2.3
   - 2.4
 
-cache: bundler
-
 gemfile:
   - gemfiles/rails_3.x.gemfile
   - gemfiles/rails_4.1_with_sprockets_2.gemfile
@@ -28,5 +26,4 @@ before_install:
   - npm install --global jade
   - npm install --global pug-cli
   - gem install bundler
-  - rm -rf ${BUNDLE_PATH:-vendor/bundle}
 
