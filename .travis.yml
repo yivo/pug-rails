@@ -27,3 +27,4 @@ matrix:
 before_install:
   - npm install --global jade
   - npm install --global pug-cli
+  - gem install bundler
