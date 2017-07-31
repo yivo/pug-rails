@@ -1,5 +1,7 @@
 language: ruby
 
+cache: bundler
+
 rvm:
   - 2.1
   - 2.2
@@ -23,9 +25,14 @@ matrix:
       gemfile: gemfiles/rails_5.1.gemfile
 
 env:
-  - RAKE_ENV=test RAILS_ENV=test
+  - RAKE_ENV=test
+  - RAILS_ENV=test
+  - BUNDLE_PATH=vendor/bundle
 
 before_install:
+  - . $HOME/.nvm/nvm.sh
+  - nvm install stable
+  - nvm use stable
   - npm install --global jade
   - npm install --global pug-cli
   - gem install bundler
