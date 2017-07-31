@@ -28,5 +28,5 @@ before_install:
   - npm install --global jade
   - npm install --global pug-cli
   - gem install bundler
-  - bundle clean
+  - rm -rf ${BUNDLE_PATH:-vendor/bundle}
 
