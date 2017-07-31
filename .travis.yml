@@ -25,9 +25,7 @@ matrix:
       gemfile: gemfiles/rails_5.1.gemfile
 
 env:
-  - RAKE_ENV=test
-  - RAILS_ENV=test
-  - BUNDLE_PATH=vendor/bundle
+  - RAKE_ENV=test RAILS_ENV=test BUNDLE_PATH=vendor/bundle
 
 before_install:
   - . $HOME/.nvm/nvm.sh
