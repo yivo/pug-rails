@@ -1,5 +1,5 @@
 PATH
-  remote: .
+  remote: ..
   specs:
     pug-rails (2.0.3)
       pug-ruby (~> 1.0)
@@ -127,7 +127,7 @@ DEPENDENCIES
   nokogiri (~> 1.6, < 1.7)
   pry-byebug
   pug-rails!
-  rails (~> 4)
+  rails (~> 4.1)
   rake (~> 10.0)
   sprockets (~> 3)
   test-unit (~> 3.1)
