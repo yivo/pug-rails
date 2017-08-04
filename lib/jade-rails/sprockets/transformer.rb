@@ -11,7 +11,7 @@ module Jade
 
     #
     # Friendly with sprockets 2.x, 3.x, and 4.x.
-    # https://github.com/rails/sprockets/blob/master/guides/extending_sprockets.md#registering-all-versions-of-sprockets-in-processors
+    # https://github.com/rails/sprockets/blob/master/guides/extending_sprockets.md#supporting-all-versions-of-sprockets-in-processors
     #
     class Transformer
       def initialize(filename, &block)

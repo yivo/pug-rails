@@ -10,6 +10,7 @@ module Jade
     initializer "sprockets.jade.transformer", after: "sprockets.environment", group: :all do |app|
       access_assets_environment app do |env|
         # Sprockets 2.x, 3.x, and 4.x.
+        # https://github.com/rails/sprockets/blob/master/guides/extending_sprockets.md#registering-all-versions-of-sprockets-in-processors
         if env.respond_to?(:register_transformer)
           env.register_mime_type   "text/x-jade", extensions: [".jade"]
           env.register_transformer "text/x-jade", "application/javascript+function", Jade::Sprockets::Transformer
