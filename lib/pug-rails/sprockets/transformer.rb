@@ -23,6 +23,10 @@ module Pug
         self.class.run(@filename, @source, context)
       end
 
+      def cache_key
+        self.class.cache_key
+      end
+
       def self.run(filename, source, context)
         Pug::Sprockets.compile(source, filename: filename, client: true)
       end
@@ -34,6 +38,13 @@ module Pug
 
         result = run(filename, source, context)
         context.metadata.merge(data: result)
+      end
+
+      def self.cache_key
+        [name,
+         PUG_RUBY_GEM_VERSION,
+         PUG_RAILS_GEM_VERSION,
+         Pug.compiler.version].join(":").freeze
       end
     end
   end

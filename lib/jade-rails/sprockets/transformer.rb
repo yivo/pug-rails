@@ -23,6 +23,10 @@ module Jade
         self.class.run(@filename, @source, context)
       end
 
+      def cache_key
+        self.class.cache_key
+      end
+
       def self.run(filename, source, context)
         Jade::Sprockets.compile(source, filename: filename, client: true)
       end
@@ -34,6 +38,13 @@ module Jade
 
         result = run(filename, source, context)
         context.metadata.merge(data: result)
+      end
+
+      def self.cache_key
+        [name,
+         PUG_RUBY_GEM_VERSION,
+         PUG_RAILS_GEM_VERSION,
+         Jade.compiler.version].join(":").freeze
       end
     end
   end
