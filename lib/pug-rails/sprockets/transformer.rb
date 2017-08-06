@@ -1,6 +1,8 @@
 # encoding: UTF-8
 # frozen_string_literal: true
 
+require "digest/sha1"
+
 module Pug
   module Sprockets
     class << self
@@ -44,7 +46,10 @@ module Pug
         [name,
          PUG_RUBY_GEM_VERSION,
          PUG_RAILS_GEM_VERSION,
-         Pug.compiler.version].join(":").freeze
+         Pug.compiler.version,
+         Pug.compiler.class.name,
+         Digest::SHA1.hexdigest(Pug.config.to_h.to_a.flatten.map(&:to_s).join(""))
+        ].join(":").freeze
       end
     end
   end
