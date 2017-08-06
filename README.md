@@ -61,23 +61,23 @@ Personally I prefer to put templates in `app/assets/templates`:
 Rails.application.config.assets.paths << Rails.root.join('app/assets/templates')
 ```
 
-## Running Tests
+## Running tests
 Install bundler:
 ```bash
 gem install bundler
 ```
 
-Install dependencies:
+Install gem dependencies:
 ```bash
-cd pug-rails && bundle && appraisal install
+cd pug-rails && bundle install && bundle exec appraisal install
 ```
 
 Run tests:
 ```bash
-cd pug-rails && appraisal rake test
+cd pug-rails && bundle exec appraisal rake test
 ```
 
 To test `pug-ruby` — refer to [pug-ruby](https://github.com/yivo/pug-ruby)
 
 ## Versioning
-Prior to version 2.0 version of the gem was the same as the version of the Jade runtime that it contains.
+Prior to 2.0 the version of the gem was the same as the version of the Jade runtime that it contained.
