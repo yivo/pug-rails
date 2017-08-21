@@ -1,8 +1,8 @@
 PATH
   remote: ..
   specs:
-    pug-rails (2.0.3)
-      pug-ruby (~> 1.0)
+    pug-rails (3.0.0.rc2)
+      pug-ruby (~> 2.0.0.rc2)
 
 GEM
   remote: https://rubygems.org/
@@ -43,6 +43,7 @@ GEM
     byebug (9.0.6)
     coderay (1.1.1)
     erubis (2.7.0)
+    execjs (2.7.0)
     hike (1.2.3)
     i18n (0.8.6)
     journey (1.0.4)
@@ -50,6 +51,8 @@ GEM
     mail (2.5.5)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memoist (0.16.0)
+    method-not-implemented (1.0.1)
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile2 (2.1.0)
@@ -65,7 +68,11 @@ GEM
     pry-byebug (3.4.2)
       byebug (~> 9.0)
       pry (~> 0.10)
-    pug-ruby (1.0.2)
+    pug-ruby (2.0.0.rc2)
+      execjs (~> 2.0)
+      memoist (~> 0.15)
+      method-not-implemented (~> 1.0, >= 1.0.1)
+      regexp-match-polyfill (~> 1.0, >= 1.0.2)
     rack (1.4.7)
     rack-cache (1.7.0)
       rack (>= 0.4)
@@ -91,6 +98,7 @@ GEM
     rake (10.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    regexp-match-polyfill (1.0.2)
     slop (3.6.0)
     sprockets (2.2.3)
       hike (~> 1.2)
@@ -121,4 +129,4 @@ DEPENDENCIES
   test-unit (~> 3.1)
 
 BUNDLED WITH
-   1.15.3
+   1.15.4

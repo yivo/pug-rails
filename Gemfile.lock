@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    pug-rails (2.0.3)
-      pug-ruby (~> 1.0)
+    pug-rails (3.0.0.rc2)
+      pug-ruby (~> 2.0.0.rc2)
 
 GEM
   remote: https://rubygems.org/
@@ -54,6 +54,7 @@ GEM
     coderay (1.1.1)
     concurrent-ruby (1.0.5)
     erubi (1.6.1)
+    execjs (2.7.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.6)
@@ -61,6 +62,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.6)
       mime-types (>= 1.16, < 4)
+    memoist (0.16.0)
+    method-not-implemented (1.0.1)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -78,7 +81,11 @@ GEM
     pry-byebug (3.4.2)
       byebug (~> 9.0)
       pry (~> 0.10)
-    pug-ruby (1.0.2)
+    pug-ruby (2.0.0.rc2)
+      execjs (~> 2.0)
+      memoist (~> 0.15)
+      method-not-implemented (~> 1.0, >= 1.0.1)
+      regexp-match-polyfill (~> 1.0, >= 1.0.2)
     rack (2.0.3)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -106,6 +113,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.5.0)
+    regexp-match-polyfill (1.0.2)
     slop (3.6.0)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
@@ -138,4 +146,4 @@ DEPENDENCIES
   test-unit (~> 3.1)
 
 BUNDLED WITH
-   1.15.3
+   1.15.4

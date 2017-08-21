@@ -6,6 +6,8 @@ require "rails/railtie"
 
 require "pug-ruby"
 
+require "pug-rails/version"
+
 require "pug-rails/sprockets/transformer"
 require "pug-rails/railtie"
 

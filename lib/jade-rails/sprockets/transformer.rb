@@ -48,7 +48,7 @@ module Jade
          PUG_RAILS_GEM_VERSION,
          Jade.compiler.version,
          Jade.compiler.class.name,
-         Digest::SHA1.hexdigest(Jade.config.to_h.to_a.flatten.map(&:to_s).join(""))
+         Digest::SHA1.hexdigest(Jade.config.to_h.to_a.flatten.map(&:to_s).join(","))
         ].join(":").freeze
       end
     end

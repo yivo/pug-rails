@@ -48,7 +48,7 @@ module Pug
          PUG_RAILS_GEM_VERSION,
          Pug.compiler.version,
          Pug.compiler.class.name,
-         Digest::SHA1.hexdigest(Pug.config.to_h.to_a.flatten.map(&:to_s).join(""))
+         Digest::SHA1.hexdigest(Pug.config.to_h.to_a.flatten.map(&:to_s).join(","))
         ].join(":").freeze
       end
     end
