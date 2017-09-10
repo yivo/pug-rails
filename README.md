@@ -1,3 +1,5 @@
+### This README is for 2.x. README for 3.x will be updated soon!
+
 ## Pug/Jade template engine integration with Rails asset pipeline
 
 [![Gem Version](https://badge.fury.io/rb/pug-rails.svg)](https://badge.fury.io/rb/pug-rails)
