@@ -1,85 +1,82 @@
-### This README is for 2.x. README for 3.x will be updated soon!
-
-## Pug/Jade template engine integration with Rails asset pipeline
+## Make Jade / Pug play well with Sprockets
 
 [![Gem Version](https://badge.fury.io/rb/pug-rails.svg)](https://badge.fury.io/rb/pug-rails)
 [![Build Status](https://travis-ci.org/yivo/pug-rails.svg?branch=master)](https://travis-ci.org/yivo/pug-rails)
 
 ## About
-This gem uses [pug-ruby](https://github.com/yivo/pug-ruby) to compile Pug/Jade templates. Please refer to that gem if you want to use Pug/Jade compiler directly.
+
+`pug-rails` is a gem that allows you to easily integrate Jade / Pug template engine with Rails asset packaging system known as Sprockets.
+
+[pug-ruby](https://github.com/yivo/pug-ruby) is used under the hood. Please refer to the gem if you would like to use Jade / Pug compiler API directly.
 
 ## Installing gem
-Add to your Gemfile:
+
+**RubyGems users**
+
+1. Run `gem install pug-rails --version "~> 3.0.0"`. 
+2. Add `require "pug-rails"` to your code.
+
+**Bundler users**
+
+1. Add to your Gemfile:
 ```ruby
-gem 'pug-rails', '~> 2.0'
+gem "pug-rails", "~> 3.0.0"
 ```
+2. Run `bundle install`.
 
-## Installing Jade
-Install Jade globally via npm:
-```bash
-npm install --global jade
-```
+## Installing Jade and Pug
 
-Require Jade runtime.js:
+See installation steps and notes at [pug-ruby](https://github.com/yivo/pug-ruby). You may not need to do this step.
+
+## Requiring Jade runtime
+
+Put the next line in your asset manifest:
 ```js
-//= require jade/runtime
+//= require jade-runtime-1.11.0
 ```
+
+You may change Jade runtime.js version depending on your scenario.
+
+## Naming Jade templates
 
 Use `.jst.jade` as extension of your Jade files.
 
-## Installing Pug
-Install Pug globally via npm:
-```bash
-npm install --global pug-cli
+## Requiring Pug runtime
+
+Put the next line in your asset manifest:
+```js
+//= require pug-runtime-2.0.2
 ```
 
-Require Pug runtime.js:
-```js
-//= require pug/runtime
-```
-NOTE: You don't need to do this if you are inlining Pug runtime functions in template. Please read about `inlineRuntimeFunctions` option at official website — [pugjs.org](http://pugjs.org).
+You may change Pug runtime.js version depending on your scenario.
+
+**IMPORTANT:** You don't need to do this if you have configured Pug compiler to inline runtime functions in template. Please read about `inlineRuntimeFunctions` option at official website: [pugjs.org](http://pugjs.org).
+
+## Naming Pug templates
 
 Use `.jst.pug` as extension of your Pug files.
 
-## Configuring Pug and Jade
-Access Pug and Jade configurations directly:
-```ruby
-Jade.config.compile_debug = false
-Pug.config.compile_debug  = false
-```
+## Configuring Jade / Pug
 
-Access Pug and Jade configurations through `Rails.application.config`:
-```ruby
-Rails.application.config.jade.compile_debug = false
-Rails.application.config.pug.compile_debug  = false
-```
+Configuration documentation is available at [pug-ruby](https://github.com/yivo/pug-ruby#configuring-jade--pug).
 
 ## Configuring asset lookup paths
-It doesn't matter where to put Pug/Jade files but don't forget to update asset lookup paths. 
+
+It doesn't matter where to put Jade / Pug files but don't forget to update asset lookup paths. 
 Personally I prefer to put templates in `app/assets/templates`:
 ```ruby
-# Add app/assets/templates to asset lookup paths
-# Add this to your initializers or application.rb
+# This will add app/assets/templates to asset lookup paths.
+#
+# Add the next line to your initializers or application.rb:
 Rails.application.config.assets.paths << Rails.root.join('app/assets/templates')
 ```
 
 ## Running tests
-Install bundler:
-```bash
-gem install bundler
-```
 
-Install gem dependencies:
-```bash
-cd pug-rails && bundle install && bundle exec appraisal install
-```
-
-Run tests:
-```bash
-cd pug-rails && bundle exec appraisal rake test
-```
-
-To test `pug-ruby` — refer to [pug-ruby](https://github.com/yivo/pug-ruby)
+1. Install both Jade and Pug: `npm install --global jade pug`.
+2. Install gem dependencies: `bundle install`.
+3. Finally, run tests: `bundle exec appraisal rake test`.
 
 ## Versioning
+
 Prior to 2.0 the version of the gem was the same as the version of the Jade runtime that it contained.
