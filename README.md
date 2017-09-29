@@ -1,4 +1,4 @@
-## Make Jade and Pug play well with Sprockets
+## 👌 Make Jade and Pug play well with Sprockets
 
 [![Gem Version](https://badge.fury.io/rb/pug-rails.svg)](https://badge.fury.io/rb/pug-rails)
 [![Build Status](https://travis-ci.org/yivo/pug-rails.svg?branch=master)](https://travis-ci.org/yivo/pug-rails)
