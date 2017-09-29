@@ -1,4 +1,4 @@
-## Make Jade / Pug play well with Sprockets
+## Make Jade and Pug play well with Sprockets
 
 [![Gem Version](https://badge.fury.io/rb/pug-rails.svg)](https://badge.fury.io/rb/pug-rails)
 [![Build Status](https://travis-ci.org/yivo/pug-rails.svg?branch=master)](https://travis-ci.org/yivo/pug-rails)
@@ -26,7 +26,7 @@ gem "pug-rails", "~> 3.0.0"
 
 ## Installing Jade and Pug
 
-See installation steps and notes at [pug-ruby](https://github.com/yivo/pug-ruby). You may not need to do this step.
+See installation steps and notes at [pug-ruby](https://github.com/yivo/pug-ruby#installing-jade). You may not need to do this step.
 
 ## Requiring Jade runtime
 
@@ -68,7 +68,7 @@ Personally I prefer to put templates in `app/assets/templates`:
 # This will add app/assets/templates to asset lookup paths.
 #
 # Add the next line to your initializers or application.rb:
-Rails.application.config.assets.paths << Rails.root.join('app/assets/templates')
+Rails.application.config.assets.paths << Rails.root.join("app/assets/templates")
 ```
 
 ## Running tests
