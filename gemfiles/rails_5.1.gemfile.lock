@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    pug-rails (3.0.0.rc3)
+    pug-rails (3.0.0)
       pug-ruby (~> 2.0.0)
 
 GEM
