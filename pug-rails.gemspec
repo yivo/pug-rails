@@ -17,10 +17,6 @@ Gem::Specification.new do |s|
   s.test_files      = `git ls-files -z -- {test,spec,features}/*`.split("\x0")
   s.require_paths   = ["lib"]
 
-  s.add_dependency             "pug-ruby",  "~> 2.0.0.rc3"
+  s.add_dependency             "pug-ruby",  "~> 2.0.0"
   s.add_development_dependency "bundler",   "~> 1.7"
-  s.add_development_dependency "rake",      "~> 10.0"
-  s.add_development_dependency "appraisal", "~> 2.1"
-  s.add_development_dependency "test-unit", "~> 3.1"
-  s.add_development_dependency "nokogiri",  "~> 1.6", "< 1.7"
 end
