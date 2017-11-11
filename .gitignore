@@ -1,6 +1,6 @@
 *.gem
+.rubocop-*
 .bundle
-.ruby-version
 pkg/
 tmp/
 /.idea/

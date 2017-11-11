@@ -1,0 +1,2 @@
+inherit_from:
+  - https://raw.githubusercontent.com/yivo/pug-ruby/master/.rubocop.yml
