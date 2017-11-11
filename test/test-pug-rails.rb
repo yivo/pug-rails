@@ -37,6 +37,7 @@ class PugRailsTest < Test::Unit::TestCase
     end
   end
 
+  # rubocop:disable Lint/AmbiguousRegexpLiteral
   def test_runtime
     app = create_rails_application
     app.initialize!

@@ -4,6 +4,7 @@
 require "digest/sha1"
 
 module Jade
+  # :nodoc:
   module Sprockets
     class << self
       def compile(source, options = {})
@@ -16,9 +17,9 @@ module Jade
     # https://github.com/rails/sprockets/blob/master/guides/extending_sprockets.md#supporting-all-versions-of-sprockets-in-processors
     #
     class Transformer
-      def initialize(filename, &block)
+      def initialize(filename)
         @filename = filename
-        @source   = block.call
+        @source   = yield
       end
 
       def render(context, _)

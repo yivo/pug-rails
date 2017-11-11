@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 module Jade
+  # :nodoc:
   class Railtie < Rails::Railtie
     config.jade               = Jade.config
     config.jade.pretty        = Rails.env.development?
@@ -33,6 +34,7 @@ module Jade
     end
 
   private
+
     def access_assets_config(app)
       yield app.config.assets
     end

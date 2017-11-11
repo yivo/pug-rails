@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 module Pug
+  # :nodoc:
   class Railtie < Rails::Railtie
     config.pug               = Pug.config
     config.pug.pretty        = Rails.env.development?
@@ -12,7 +13,7 @@ module Pug
         # Sprockets 2.x, 3.x, and 4.x.
         # https://github.com/rails/sprockets/blob/master/guides/extending_sprockets.md#registering-all-versions-of-sprockets-in-processors
         if env.respond_to?(:register_transformer)
-          env.register_mime_type  "text/x-pug", extensions: [".pug"]
+          env.register_mime_type   "text/x-pug", extensions: [".pug"]
           env.register_transformer "text/x-pug", "application/javascript+function", Pug::Sprockets::Transformer
         end
 
@@ -33,6 +34,7 @@ module Pug
     end
 
   private
+
     def access_assets_config(app)
       yield app.config.assets
     end

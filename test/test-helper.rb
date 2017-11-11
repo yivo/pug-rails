@@ -44,7 +44,7 @@ module TestHelper
       require "rake/sprocketstask"
       Rake::SprocketsTask.new do |t|
         t.environment = app.assets
-        t.output      = "#{app.config.paths["public"].to_a[0]}#{app.config.assets.prefix}"
+        t.output      = "#{ app.config.paths["public"].to_a[0] }#{ app.config.assets.prefix }"
         t.assets      = app.config.assets.precompile
       end
     else
